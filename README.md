@@ -5,6 +5,8 @@
   * Each new scene is based on an existing scene, which can be used as a
     template.
 
+![screenshot of OBS script dialog](screenshot.jpg)
+
 ## Use Case
 
 For our church live-stream productions, we have many image slides to set up
