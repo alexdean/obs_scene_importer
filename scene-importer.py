@@ -1,6 +1,6 @@
 import obspython as obs
 import glob
-import os.path as path
+from pathlib import Path
 
 template_scene_name = ""
 image_directory = ""
@@ -43,11 +43,11 @@ def run_import(props, prop):
   files = glob.glob(image_directory + "/*")
   files.sort()
   for filename in files:
-    obs.script_log(obs.LOG_WARNING, filename)
-    parts = path.basename(filename).split('-')
-    name_without_ordinal = parts[1].strip() # name = 'test.jpg'
-    parts = name_without_ordinal.split('.')
-    bare_name = parts[0].strip() # name = 'test'
+    # try to remove the initial ordinal, but don't error if it isn't present.
+    # '01 - test.jpg' -> 'test'
+    #      'test.jpg' -> 'test'
+    parts = Path(filename).stem.split('-')
+    bare_name = parts[len(parts) - 1].strip()
 
     new_scene = obs.obs_scene_duplicate(template_scene, bare_name, obs.OBS_SCENE_DUP_REFS)
 
@@ -59,5 +59,7 @@ def run_import(props, prop):
 
     obs.obs_source_release(source)
     obs.obs_scene_release(new_scene)
+
+    obs.script_log(obs.LOG_INFO, "created scene '" + bare_name + "' from " + filename)
 
   obs.obs_source_release(template_source)
