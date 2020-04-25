@@ -60,5 +60,4 @@ def run_import(props, prop):
     obs.obs_source_release(source)
     obs.obs_scene_release(new_scene)
 
-  obs.obs_scene_release(template_scene)
   obs.obs_source_release(template_source)
