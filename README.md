@@ -5,7 +5,7 @@
   * Each new scene is based on an existing scene, which can be used as a
     template.
 
-![screenshot of OBS script dialog](screenshot.jpg)
+![screenshot of OBS script dialog](images/screenshot.jpg)
 
 ## Use Case
 
@@ -16,6 +16,16 @@ in the corner of each slide.
 I set up the images to be imported in a directory, and create a template scene
 that includes the audio and camera sources. Then I run this script to create
 all the new scenes.
+
+## Example
+
+A directory of images like this:
+
+![screenshot of a directory listing showing image files](images/images_in_directory.jpg)
+
+Will look like this in OBS after the script finishes:
+
+![screenshot of OBS scenes list showing a new scene for each image file](images/images_in_obs.jpg)
 
 ## Directory Structure
 
@@ -32,6 +42,8 @@ Examples:
 
 ## Limitations
 
+  * Script was developed on OSX. I haven't tested it on Windows. (If you do use
+    this script on Windows, please let me know.)
   * Images are not resized or fit to the canvas. They will likely need to be
     resized/tweaked manually after import.
   * Every file in your selected directory should be an image. The script doesn't
