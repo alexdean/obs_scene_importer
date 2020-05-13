@@ -55,8 +55,8 @@ Examples:
 Leaving these notes here because the OBS documentation was unclear.
 
   * As of April 2020, `brew install python` installs python 3.7.7. This is fine
-    for OBS 25. I saw many references saying OBS required python <= 3.6, but this
-    is no longer the case.
+    for OBS 25 on Mac. I saw many references saying OBS required python <= 3.6, but this
+    is no longer the case on Mac. (OBS on Windows still requires python 3.6.)
   * In OBS, go to the Tools -> Scripts menu and select the 'Python Settings' tab.
   * The Python Install Path should be `/usr/local/Cellar/python/3.7.7/Frameworks/Python.framework/Versions/3.7`
     Make sure that directory actually exists. You might need to tweak the path to
