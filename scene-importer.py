@@ -1,6 +1,7 @@
 import obspython as obs
 import glob
 from pathlib import Path
+import import_utils
 
 template_scene_name = ""
 image_directory = ""
@@ -56,6 +57,7 @@ def run_import(props, prop):
     source = obs.obs_source_create('image_source', 'Image - ' + bare_name, source_data, None)
     scene_item = obs.obs_scene_add(new_scene, source)
     obs.obs_sceneitem_set_order(scene_item, obs.OBS_ORDER_MOVE_BOTTOM)
+    import_utils.fit_to_screen(scene_item)
 
     obs.obs_source_release(source)
     obs.obs_scene_release(new_scene)
